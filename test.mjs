@@ -1,5 +1,5 @@
-const test = require('tape')
-const { parse, fragment, serialize } = require('.')
+import test from 'tape'
+import { parse, fragment, serialize } from './parse5.mjs'
 
 test('parse should exist', t => {
   t.ok(parse)

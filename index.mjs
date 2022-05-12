@@ -1,0 +1,1 @@
+export { parse, parseFragment as fragment, serializeOuter as serialize } from 'parse5'
