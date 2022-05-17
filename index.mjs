@@ -1,1 +1,1 @@
-export { parse, parseFragment as fragment, serializeOuter as serialize } from 'parse5'
+export { parse, parseFragment as fragment, serialize, serializeOuter } from 'parse5'

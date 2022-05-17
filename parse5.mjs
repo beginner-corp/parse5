@@ -7430,6 +7430,13 @@ function isVoidElement(node, options) {
   return options.treeAdapter.isElementNode(node) && options.treeAdapter.getNamespaceURI(node) === NS.HTML && VOID_ELEMENTS.has(options.treeAdapter.getTagName(node));
 }
 var defaultOpts = { treeAdapter: defaultTreeAdapter, scriptingEnabled: true };
+function serialize(node, options) {
+  const opts = { ...defaultOpts, ...options };
+  if (isVoidElement(node, opts)) {
+    return "";
+  }
+  return serializeChildNodes(node, opts);
+}
 function serializeOuter(node, options) {
   const opts = { ...defaultOpts, ...options };
   return serializeNode(node, opts);
@@ -7526,5 +7533,6 @@ function parseFragment(fragmentContext, html, options) {
 export {
   parseFragment as fragment,
   parse,
-  serializeOuter as serialize
+  serialize,
+  serializeOuter
 };
